@@ -37,9 +37,6 @@ class bullet{
 	    fillellipse(x,y,4,4);
 	}
 	void hit(){
-	setcolor(BLACK);
-	    setfillstyle(1,BLACK);
-	    fillellipse(x,y,4,4);
 	 active=0;
 	}
 	void draw(){
@@ -362,13 +359,13 @@ int main()                        // test the functions
    int movecount=0;
    int midx=getmaxx()/2;
    int midy=getmaxy()/2;
-   r2d2 hanSolo(midx-100,midy);
+   r2d2 pankaz(midx-100,midy);
    enemy darth_vader(midx+20,midy);
    char inp;
    int dirE=-1;
    clock_t world;
    world=clock();
-   hanSolo.move(RIGHT);
+   pankaz.move(RIGHT);
    do {
    if (((clock()-world)/CLK_TCK)>0.01){
 	   for (int i=0;i<bullet_count;i++) bullet[i].draw();
@@ -387,11 +384,11 @@ int main()                        // test the functions
 	   if (kbhit()) {while(kbhit()) inp = getch();
 		if (inp=='u') break;
 		else if (inp==' ') {
-			hanSolo.fire();
+			pankaz.fire();
 		}
-		else hanSolo.move(whichWay(inp));
+		else pankaz.move(whichWay(inp));
 	   }
-	   //cout<<hanSolo.x<<", "<<hanSolo.y;
+	   //cout<<pankaz.x<<", "<<pankaz.y;
    } while (1);
  closegraph();
    return 0;
